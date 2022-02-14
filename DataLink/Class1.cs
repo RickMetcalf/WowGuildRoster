@@ -1,6 +1,7 @@
 using System;
 
-namespace DataLink
+namespace DataModels
+
 {
     public class Class1
     {
