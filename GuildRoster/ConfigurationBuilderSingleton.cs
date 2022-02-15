@@ -22,7 +22,7 @@ namespace GuildRoster
             {
                 var builder = new ConfigurationBuilder()
                                     .SetBasePath(Directory.GetCurrentDirectory())
-                                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                                    .AddJsonFile("appsettings2.json", optional: true, reloadOnChange: true);
 
                 _configuration = builder.Build();
             }

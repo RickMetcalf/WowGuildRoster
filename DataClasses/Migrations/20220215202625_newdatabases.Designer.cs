@@ -3,6 +3,7 @@ using DataClasses;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLibrary.Migrations
 {
     [DbContext(typeof(GuildDatabase))]
-    partial class GuildDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20220215202625_newdatabases")]
+    partial class newdatabases
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,7 +23,7 @@ namespace DataLibrary.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("DataModels.GuildRank", b =>
+            modelBuilder.Entity("DataModels.GuildRanks", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,22 +97,9 @@ namespace DataLibrary.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Players");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AltRoleID = 4,
-                            GuildRankID = 1,
-                            PlayerClassID = 10,
-                            PlayerName = "Heterohexual",
-                            RoleID = 3,
-                            SpecializationID = 29,
-                            TeamID = 0
-                        });
                 });
 
-            modelBuilder.Entity("DataModels.Role", b =>
+            modelBuilder.Entity("DataModels.Roles", b =>
                 {
                     b.Property<int>("RoleID")
                         .ValueGeneratedOnAdd()
@@ -149,7 +138,7 @@ namespace DataLibrary.Migrations
                         });
                 });
 
-            modelBuilder.Entity("DataModels.Spec", b =>
+            modelBuilder.Entity("DataModels.Specs", b =>
                 {
                     b.Property<int>("SpecID")
                         .ValueGeneratedOnAdd()
@@ -427,7 +416,7 @@ namespace DataLibrary.Migrations
                         });
                 });
 
-            modelBuilder.Entity("DataModels.Team", b =>
+            modelBuilder.Entity("DataModels.Teams", b =>
                 {
                     b.Property<int>("TeamID")
                         .ValueGeneratedOnAdd()
@@ -448,7 +437,7 @@ namespace DataLibrary.Migrations
                     b.ToTable("Teams");
                 });
 
-            modelBuilder.Entity("DataModels.WowClass", b =>
+            modelBuilder.Entity("DataModels.WowClasses", b =>
                 {
                     b.Property<int>("ClassID")
                         .ValueGeneratedOnAdd()
