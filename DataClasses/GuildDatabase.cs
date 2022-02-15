@@ -14,6 +14,7 @@ namespace DataClasses
     public class GuildDatabase : DbContext 
     {
         private static IConfigurationRoot _configuration;
+       
         public DbSet <Player> Players { get; set; } 
         public GuildDatabase() : base()
         {
@@ -28,14 +29,12 @@ namespace DataClasses
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //TODO 1: If you want to change the database name, find the appsettings.json file
-            //      then modify the connection string for MyDataManagerData to set a different
-            //      Database name
+            
             if (!optionsBuilder.IsConfigured)
             {
                 var builder = new ConfigurationBuilder()
                                 .SetBasePath(Directory.GetCurrentDirectory())
-                                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                                .AddJsonFile("appsettings2.json", optional: true, reloadOnChange: true);
 
                 _configuration = builder.Build();
                 var cnstr = _configuration.GetConnectionString("GuildRosterData");
