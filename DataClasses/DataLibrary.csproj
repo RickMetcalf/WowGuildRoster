@@ -37,4 +37,8 @@
     <ProjectReference Include="..\DataLink\DataModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
