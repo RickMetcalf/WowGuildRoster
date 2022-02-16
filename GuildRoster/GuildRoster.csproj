@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="appsettings2.json" />
+    <None Remove="World-of-Warcraft-Logo-2004-present.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +48,10 @@
   <ItemGroup>
     <ProjectReference Include="..\DataClasses\DataLibrary.csproj" />
     <ProjectReference Include="..\DataLink\DataModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="World-of-Warcraft-Logo-2004-present.png" />
   </ItemGroup>
 
 </Project>
