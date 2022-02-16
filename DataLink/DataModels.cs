@@ -16,13 +16,22 @@ namespace DataModels
         [Required]
         public int WowClassID { get; set; }
         [Required, StringLength(20)]
+
+        public string Specialization { get; set; }
+        [Required, StringLength(20)]
+        public string PlayerRole { get; set; }  
         public int TeamID { get; set; }
+
+        
+
         [Required]
         public int GuildRankID { get; set; }
         public virtual Team? Team { get; set; }
         public virtual GuildRank? GuildRank { get; set; }
         public virtual WowClass? WowClass { get; set; }
-        
+
+        //public virtual Spec Spec { get; set; }
+
 
     }
     public class WowClass
@@ -47,7 +56,7 @@ namespace DataModels
         public int RoleId { get; set; }
 
         public virtual WowClass? WowClass { get; set; }
-
+        
         public virtual Role? Role { get; set; }
         
 

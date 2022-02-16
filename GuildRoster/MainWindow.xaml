@@ -8,13 +8,25 @@
         Title="MainWindow" Height="450" Width="800"
         Loaded="Window_Loaded"
         >
-    
-    <Grid>
+
+    <Grid Background="#FF014F85">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="176*"/>
-            <ColumnDefinition Width="61*"/>
-            <ColumnDefinition Width="563*"/>
+            <ColumnDefinition Width="191*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="608*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgRoster" Margin="12,0,0,0" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="dgRoster" Grid.Column="2" Grid.ColumnSpan="2" Opacity="0.695"/>
+        <Image HorizontalAlignment="Center" Height="81" VerticalAlignment="Top" Width="174" Source="/World-of-Warcraft-Logo-2004-present.png" Stretch="UniformToFill"/>
+        <Button Content="View Roster" HorizontalAlignment="Left" Height="46" Margin="31,91,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewRoster_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Add Player" HorizontalAlignment="Left" Height="46" Margin="31,142,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewRoster_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
     </Grid>
 </Window>

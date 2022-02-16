@@ -38,13 +38,28 @@ namespace GuildRoster
 
         public MainWindow()
         {
+            
             InitializeComponent();
+            dgRoster.Visibility = Visibility.Collapsed;
         }
 
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             BuildOptions();
+
+            
+        }
+        static void BuildOptions()
+        {
+            _configuration = ConfigurationBuilderSingleton.ConfigurationRoot;
+            _optionsBuilder = new DbContextOptionsBuilder<GuildDatabase>();
+            _optionsBuilder.UseSqlServer(_configuration.GetConnectionString("GuildRosterData"));
+        }
+
+        private void ViewRoster_Click(object sender, RoutedEventArgs e)
+        {
+            dgRoster.Visibility=Visibility.Visible;
             using (var db = new GuildDatabase(_optionsBuilder.Options))
             {
                 var dataView = from c in db.Classes
@@ -56,9 +71,10 @@ namespace GuildRoster
                                where p.WowClassID == c.Id &&
                                      s.WowClassId == c.Id &&
                                      r.Id == s.RoleId &&
-                                     p.GuildRankID == g.Id
+                                     p.GuildRankID == g.Id &&
+                                     s.SpecName == p.Specialization
                                && t.Id == p.TeamID || p.TeamID == 0
-
+                               orderby p.GuildRankID
                                select new
                                {
                                    p.PlayerName,
@@ -68,21 +84,18 @@ namespace GuildRoster
                                    t.TeamName,
                                    g.GuildRankName
 
-                               };
-                //               into selection
-                //               orderby selection.PlayerName descending, selection.RoleName descending
-                //               select selection;
-                var newDataView = from p in db.Players
-                                  where p.PlayerName != null
-                                  select p;
+                               }
+                               into selection
+                               orderby selection.PlayerName descending, selection.RoleName descending
+                               select selection;
+                
                 dgRoster.ItemsSource = dataView.ToList();
             }
+            
         }
-        static void BuildOptions()
+        private void AddPlayer_Click(object sender, RoutedEventArgs e)
         {
-            _configuration = ConfigurationBuilderSingleton.ConfigurationRoot;
-            _optionsBuilder = new DbContextOptionsBuilder<GuildDatabase>();
-            _optionsBuilder.UseSqlServer(_configuration.GetConnectionString("GuildRosterData"));
+
         }
     }
 
