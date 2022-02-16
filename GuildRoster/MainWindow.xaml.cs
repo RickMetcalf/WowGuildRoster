@@ -47,35 +47,35 @@ namespace GuildRoster
             BuildOptions();
             using (var db = new GuildDatabase(_optionsBuilder.Options))
             {
-                var dataView = from c in db.Classes
-                               from s in db.Specs
-                               from r in db.Roles
-                               from p in db.Players
-                               from g in db.GuildRanks
-                               //from t in db.Teams
-                               where p.PlayerClassID == c.ClassID &&
-                                     s.SpecID == p.SpecializationID &&
-                                     r.RoleID == p.RoleID &&
-                                     p.GuildRankID == g.Id 
-                                     //&& t.TeamID == p.TeamID || p.TeamID == 0)
+                //var dataView = from c in db.Classes
+                //               from s in db.Specs
+                //               from r in db.Roles
+                //               from p in db.Players
+                //               from g in db.GuildRanks
+                //               //from t in db.Teams
+                //               where p.PlayerClassID == c.ClassID &&
+                //                     s.SpecID == p.SpecializationID &&
+                //                     r.RoleID == p.RoleID &&
+                //                     p.GuildRankID == g.Id 
+                //                     //&& t.TeamID == p.TeamID || p.TeamID == 0)
 
-                               select new
-                                {
-                                   p.PlayerName,
-                                   c.ClassName,
-                                   s.SpecName,
-                                   r.RoleName,
-                                   //t.TeamName,
-                                   g.GuildRankName
+                //               select new
+                //                {
+                //                   p.PlayerName,
+                //                   c.ClassName,
+                //                   s.SpecName,
+                //                   r.RoleName,
+                //                   //t.TeamName,
+                //                   g.GuildRankName
 
-                                 };
-                //               into selection
-                //               orderby selection.PlayerName descending, selection.RoleName descending
-                //               select selection;
-                var newDataView = from p in db.Players
-                                  where p.PlayerName != null
-                                  select p;
-                dgRoster.ItemsSource = dataView.ToList();
+                //                 };
+                ////               into selection
+                ////               orderby selection.PlayerName descending, selection.RoleName descending
+                ////               select selection;
+                //var newDataView = from p in db.Players
+                //                  where p.PlayerName != null
+                //                  select p;
+                //dgRoster.ItemsSource = dataView.ToList();
             }
         }
         static void BuildOptions()

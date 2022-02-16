@@ -14,57 +14,69 @@ namespace DataModels
         [Required, StringLength(12)]
         public string PlayerName { get; set; }
         [Required]
-        public int PlayerClassID { get; set; }
+        public int WowClassID { get; set; }
         [Required]
-        public int SpecializationID { get; set; }
-        [Required]
-        public int RoleID { get; set; } 
-        public int AltRoleID { get; set; }
-        
         public int TeamID { get; set; }
         [Required]
         public int GuildRankID { get; set; }
-        
+        public virtual Team? Team { get; set; }
+        public virtual GuildRank? GuildRank { get; set; }
+        public virtual WowClass? WowClass { get; set; }
+
     }
     public class WowClass
     {
-        [Required, Key]
-        public int ClassID { get; set; }
+        [Required]
+        public int Id { get; set; }
         [Required, StringLength(16)]
         public string ClassName { get; set; }
+
+        public virtual Spec? Spec { get; set; }
+
+        public virtual List<Player> Player { get; set; } = new List<Player>();
     }
     public class Spec
     {
-        [Required, Key]
-        public int SpecID { get; set; }
+        [Required]
+        public int Id { get; set; }
         [Required, StringLength(20)]
         public string SpecName { get; set; }
         [Required]
-        public int ClassID { get; set; } 
+        public int WowClassId { get; set; } 
         [Required]
-        public int RoleID { get; set; } 
+        public int RoleId { get; set; }
+
+        public virtual List<WowClass> Player { get; set; } = new List<WowClass>();
+          
+        public virtual Role? Role { get; set; }  
            
     }
     public class Role
     {
-        [Required, Key]
-        public int RoleID { get; set; }
+        [Required]
+        public int Id { get; set; }
+        [Required]
         public string RoleName { get; set; }
+
+        public virtual List<Spec> Specs { get; set; } = new List<Spec>();
     }
     public class Team
     {
-        [Required][Key]
-        public int TeamID { get; set; }
+        [Required]
+        public int Id { get; set; }
         [Required, StringLength(20)]
         public string TeamName { get; set; }
-        [Required]
-        public int MaxTeamSize { get; set; }
+
+        public virtual List<Player> Players { get; set; } = new List<Player> { };
+
     }
     public class GuildRank
     {
         [Required]
         public int Id { get; set; }
         [Required, StringLength(20)]
-        public string GuildRankName { get; set; }   
+        public string GuildRankName { get; set; }
+
+        public virtual List<Player> Players { get; set; } = new List<Player> { };
     }
 }
