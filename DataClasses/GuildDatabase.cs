@@ -51,7 +51,7 @@ namespace DataClasses
         {
             modelBuilder.Entity<Player>(x =>
             {
-                x.HasData(new Player() { Id = 1, PlayerName = "Heterohexual", WowClassID = 10, TeamID = 1, GuildRankID = 1 });
+                x.HasData(new Player() { Id = 1, PlayerName = "Heterohexual", WowClassID = 10, TeamID = 1,  GuildRankID = 1 });
             });
             modelBuilder.Entity<WowClass>(a =>
             {
@@ -66,7 +66,7 @@ namespace DataClasses
                           new WowClass() { Id = 9, ClassName = "Rogue" },
                           new WowClass() { Id = 10, ClassName = "Shaman" },
                           new WowClass() { Id = 11, ClassName = "Warlock" },
-                          new WowClass() { Id = 112, ClassName = "Warrior" }
+                          new WowClass() { Id = 12, ClassName = "Warrior" }
                 );
             });
             modelBuilder.Entity<Role>(b =>

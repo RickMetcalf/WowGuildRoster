@@ -15,13 +15,14 @@ namespace DataModels
         public string PlayerName { get; set; }
         [Required]
         public int WowClassID { get; set; }
-        [Required]
+        [Required, StringLength(20)]
         public int TeamID { get; set; }
         [Required]
         public int GuildRankID { get; set; }
         public virtual Team? Team { get; set; }
         public virtual GuildRank? GuildRank { get; set; }
         public virtual WowClass? WowClass { get; set; }
+        
 
     }
     public class WowClass
@@ -31,8 +32,7 @@ namespace DataModels
         [Required, StringLength(16)]
         public string ClassName { get; set; }
 
-        public virtual Spec? Spec { get; set; }
-
+        public virtual List<Spec> Spec { get; set; } = new List<Spec>();
         public virtual List<Player> Player { get; set; } = new List<Player>();
     }
     public class Spec
@@ -46,10 +46,11 @@ namespace DataModels
         [Required]
         public int RoleId { get; set; }
 
-        public virtual List<WowClass> Player { get; set; } = new List<WowClass>();
-          
-        public virtual Role? Role { get; set; }  
-           
+        public virtual WowClass? WowClass { get; set; }
+
+        public virtual Role? Role { get; set; }
+        
+
     }
     public class Role
     {

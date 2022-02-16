@@ -3,6 +3,7 @@ using DataClasses;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLibrary.Migrations
 {
     [DbContext(typeof(GuildDatabase))]
-    partial class GuildDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20220216185906_data")]
+    partial class data
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +38,7 @@ namespace DataLibrary.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GuildRanks", (string)null);
+                    b.ToTable("GuildRanks");
 
                     b.HasData(
                         new
@@ -91,7 +93,7 @@ namespace DataLibrary.Migrations
 
                     b.HasIndex("WowClassID");
 
-                    b.ToTable("Players", (string)null);
+                    b.ToTable("Players");
 
                     b.HasData(
                         new
@@ -118,7 +120,7 @@ namespace DataLibrary.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
 
                     b.HasData(
                         new
@@ -168,7 +170,7 @@ namespace DataLibrary.Migrations
 
                     b.HasIndex("WowClassId");
 
-                    b.ToTable("Specs", (string)null);
+                    b.ToTable("Specs");
 
                     b.HasData(
                         new
@@ -440,7 +442,7 @@ namespace DataLibrary.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Teams", (string)null);
+                    b.ToTable("Teams");
 
                     b.HasData(
                         new
@@ -470,7 +472,7 @@ namespace DataLibrary.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Classes", (string)null);
+                    b.ToTable("Classes");
 
                     b.HasData(
                         new

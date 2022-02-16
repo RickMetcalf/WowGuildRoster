@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLibrary.Migrations
 {
     [DbContext(typeof(GuildDatabase))]
-    [Migration("20220216181935_fix")]
-    partial class fix
+    [Migration("20220216185449_initial3")]
+    partial class initial3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,28 @@ namespace DataLibrary.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("GuildRanks");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            GuildRankName = "Guild Master"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            GuildRankName = "Officer"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            GuildRankName = "Member"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            GuildRankName = "Trial"
+                        });
                 });
 
             modelBuilder.Entity("DataModels.Player", b =>
@@ -60,7 +82,7 @@ namespace DataLibrary.Migrations
                     b.Property<int>("TeamID")
                         .HasColumnType("int");
 
-                    b.Property<int>("WowClassId")
+                    b.Property<int>("WowClassID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -69,9 +91,19 @@ namespace DataLibrary.Migrations
 
                     b.HasIndex("TeamID");
 
-                    b.HasIndex("WowClassId");
+                    b.HasIndex("WowClassID");
 
                     b.ToTable("Players");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            GuildRankID = 1,
+                            PlayerName = "Heterohexual",
+                            TeamID = 1,
+                            WowClassID = 10
+                        });
                 });
 
             modelBuilder.Entity("DataModels.Role", b =>
@@ -89,6 +121,28 @@ namespace DataLibrary.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            RoleName = "Tank"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            RoleName = "Healer"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            RoleName = "Melee DPS"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            RoleName = "Ranged DPS"
+                        });
                 });
 
             modelBuilder.Entity("DataModels.Spec", b =>
@@ -117,6 +171,22 @@ namespace DataLibrary.Migrations
                     b.HasIndex("WowClassId");
 
                     b.ToTable("Specs");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            RoleId = 1,
+                            SpecName = "Blood",
+                            WowClassId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            RoleId = 3,
+                            SpecName = "Frost",
+                            WowClassId = 1
+                        });
                 });
 
             modelBuilder.Entity("DataModels.Team", b =>
@@ -135,6 +205,18 @@ namespace DataLibrary.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teams");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            TeamName = "Mythic Raiding"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            TeamName = "M+ Team One"
+                        });
                 });
 
             modelBuilder.Entity("DataModels.WowClass", b =>
@@ -153,6 +235,68 @@ namespace DataLibrary.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Classes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClassName = "Death Knight"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClassName = "Demon Hunter"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClassName = "Druid"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ClassName = "Hunter"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ClassName = "Mage"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ClassName = "Monk"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ClassName = "Paladin"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ClassName = "Priest"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ClassName = "Rogue"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ClassName = "Shaman"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ClassName = "Warlock"
+                        },
+                        new
+                        {
+                            Id = 112,
+                            ClassName = "Warrior"
+                        });
                 });
 
             modelBuilder.Entity("DataModels.Player", b =>
@@ -171,7 +315,7 @@ namespace DataLibrary.Migrations
 
                     b.HasOne("DataModels.WowClass", "WowClass")
                         .WithMany("Player")
-                        .HasForeignKey("WowClassId")
+                        .HasForeignKey("WowClassID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -191,7 +335,7 @@ namespace DataLibrary.Migrations
                         .IsRequired();
 
                     b.HasOne("DataModels.WowClass", "WowClass")
-                        .WithMany("Specs")
+                        .WithMany("Spec")
                         .HasForeignKey("WowClassId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -220,7 +364,7 @@ namespace DataLibrary.Migrations
                 {
                     b.Navigation("Player");
 
-                    b.Navigation("Specs");
+                    b.Navigation("Spec");
                 });
 #pragma warning restore 612, 618
         }

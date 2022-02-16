@@ -3,6 +3,7 @@ using DataClasses;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLibrary.Migrations
 {
     [DbContext(typeof(GuildDatabase))]
-    partial class GuildDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20220216185646_initial6")]
+    partial class initial6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +38,7 @@ namespace DataLibrary.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GuildRanks", (string)null);
+                    b.ToTable("GuildRanks");
 
                     b.HasData(
                         new
@@ -91,7 +93,7 @@ namespace DataLibrary.Migrations
 
                     b.HasIndex("WowClassID");
 
-                    b.ToTable("Players", (string)null);
+                    b.ToTable("Players");
 
                     b.HasData(
                         new
@@ -118,7 +120,7 @@ namespace DataLibrary.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
 
                     b.HasData(
                         new
@@ -168,7 +170,7 @@ namespace DataLibrary.Migrations
 
                     b.HasIndex("WowClassId");
 
-                    b.ToTable("Specs", (string)null);
+                    b.ToTable("Specs");
 
                     b.HasData(
                         new
@@ -240,188 +242,6 @@ namespace DataLibrary.Migrations
                             RoleId = 3,
                             SpecName = "Survival",
                             WowClassId = 4
-                        },
-                        new
-                        {
-                            Id = 11,
-                            RoleId = 4,
-                            SpecName = "Beast Mastery",
-                            WowClassId = 4
-                        },
-                        new
-                        {
-                            Id = 12,
-                            RoleId = 4,
-                            SpecName = "Marksmanship",
-                            WowClassId = 4
-                        },
-                        new
-                        {
-                            Id = 13,
-                            RoleId = 4,
-                            SpecName = "Fire",
-                            WowClassId = 5
-                        },
-                        new
-                        {
-                            Id = 14,
-                            RoleId = 4,
-                            SpecName = "Frost",
-                            WowClassId = 5
-                        },
-                        new
-                        {
-                            Id = 15,
-                            RoleId = 4,
-                            SpecName = "Arcane",
-                            WowClassId = 5
-                        },
-                        new
-                        {
-                            Id = 16,
-                            RoleId = 1,
-                            SpecName = "Brewmaster",
-                            WowClassId = 6
-                        },
-                        new
-                        {
-                            Id = 17,
-                            RoleId = 2,
-                            SpecName = "Mistweaver",
-                            WowClassId = 6
-                        },
-                        new
-                        {
-                            Id = 18,
-                            RoleId = 3,
-                            SpecName = "Windwalker",
-                            WowClassId = 6
-                        },
-                        new
-                        {
-                            Id = 19,
-                            RoleId = 1,
-                            SpecName = "Protection",
-                            WowClassId = 7
-                        },
-                        new
-                        {
-                            Id = 20,
-                            RoleId = 2,
-                            SpecName = "Holy",
-                            WowClassId = 7
-                        },
-                        new
-                        {
-                            Id = 21,
-                            RoleId = 3,
-                            SpecName = "Retribution",
-                            WowClassId = 7
-                        },
-                        new
-                        {
-                            Id = 22,
-                            RoleId = 2,
-                            SpecName = "Discipline",
-                            WowClassId = 8
-                        },
-                        new
-                        {
-                            Id = 23,
-                            RoleId = 2,
-                            SpecName = "Holy",
-                            WowClassId = 8
-                        },
-                        new
-                        {
-                            Id = 24,
-                            RoleId = 4,
-                            SpecName = "Shadow",
-                            WowClassId = 8
-                        },
-                        new
-                        {
-                            Id = 25,
-                            RoleId = 3,
-                            SpecName = "Outlaw",
-                            WowClassId = 9
-                        },
-                        new
-                        {
-                            Id = 26,
-                            RoleId = 3,
-                            SpecName = "Subtlety",
-                            WowClassId = 9
-                        },
-                        new
-                        {
-                            Id = 27,
-                            RoleId = 3,
-                            SpecName = "Assassination",
-                            WowClassId = 9
-                        },
-                        new
-                        {
-                            Id = 28,
-                            RoleId = 2,
-                            SpecName = "Restoration",
-                            WowClassId = 10
-                        },
-                        new
-                        {
-                            Id = 29,
-                            RoleId = 3,
-                            SpecName = "Enhancement",
-                            WowClassId = 10
-                        },
-                        new
-                        {
-                            Id = 30,
-                            RoleId = 4,
-                            SpecName = "Elemental",
-                            WowClassId = 10
-                        },
-                        new
-                        {
-                            Id = 31,
-                            RoleId = 4,
-                            SpecName = "Destruction",
-                            WowClassId = 11
-                        },
-                        new
-                        {
-                            Id = 32,
-                            RoleId = 4,
-                            SpecName = "Demonology",
-                            WowClassId = 11
-                        },
-                        new
-                        {
-                            Id = 33,
-                            RoleId = 4,
-                            SpecName = "Affliction",
-                            WowClassId = 11
-                        },
-                        new
-                        {
-                            Id = 34,
-                            RoleId = 1,
-                            SpecName = "Protection",
-                            WowClassId = 12
-                        },
-                        new
-                        {
-                            Id = 35,
-                            RoleId = 3,
-                            SpecName = "Fury",
-                            WowClassId = 12
-                        },
-                        new
-                        {
-                            Id = 36,
-                            RoleId = 3,
-                            SpecName = "Arms",
-                            WowClassId = 12
                         });
                 });
 
@@ -440,7 +260,7 @@ namespace DataLibrary.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Teams", (string)null);
+                    b.ToTable("Teams");
 
                     b.HasData(
                         new
@@ -470,7 +290,7 @@ namespace DataLibrary.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Classes", (string)null);
+                    b.ToTable("Classes");
 
                     b.HasData(
                         new
@@ -530,7 +350,7 @@ namespace DataLibrary.Migrations
                         },
                         new
                         {
-                            Id = 12,
+                            Id = 112,
                             ClassName = "Warrior"
                         });
                 });
