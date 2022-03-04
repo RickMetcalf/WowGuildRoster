@@ -16,14 +16,26 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="608*"/>
         </Grid.ColumnDefinitions>
+
         <DataGrid x:Name="dgRoster" Grid.Column="2" Grid.ColumnSpan="2" Opacity="0.695"/>
         <Image HorizontalAlignment="Center" Height="81" VerticalAlignment="Top" Width="174" Source="/World-of-Warcraft-Logo-2004-present.png" Stretch="UniformToFill"/>
-        <Button Content="View Roster" HorizontalAlignment="Left" Height="46" Margin="31,91,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewRoster_Click">
+        <Button Content="View Roster" HorizontalAlignment="Left" Height="46" Margin="31,109,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewRoster_Click">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content="Add Player" HorizontalAlignment="Left" Height="46" Margin="31,142,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewRoster_Click">
+        <Button Content="Add Player" HorizontalAlignment="Left" Height="46" Margin="31,159,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewRoster_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Label Content="Guild Manager" HorizontalAlignment="Left" Height="45" Margin="3,73,0,0" VerticalAlignment="Top" Width="249" FontFamily="Arial Black" FontSize="22" Foreground="#FFFFED00" Background="Transparent" BorderBrush="Black" Grid.ColumnSpan="4"/>
+        <Button Content="Update Player" HorizontalAlignment="Left" Height="46" Margin="31,209,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewRoster_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Remove Player" HorizontalAlignment="Left" Height="46" Margin="31,260,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewRoster_Click">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
