@@ -1,5 +1,6 @@
 ﻿using DataClasses;
 using DataModels;
+using DataOps;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -41,6 +42,18 @@ namespace GuildRoster
             
             InitializeComponent();
             dgRoster.Visibility = Visibility.Collapsed;
+            Refresh();
+        }
+        public void Refresh()
+        {
+            var dataOp = new DataOp();
+            Classes = dataOp.GetClasses().Result;
+            Teams = dataOp.GetTeams().Result;
+            GuildRanks = dataOp.GetGuildRanks().Result;
+            Roles = dataOp.GetRoles().Result;
+            Specs = dataOp.GetSpecs().Result;
+            Players = dataOp.GetPlayers().Result;
+            
         }
 
 
@@ -59,43 +72,17 @@ namespace GuildRoster
 
         private void ViewRoster_Click(object sender, RoutedEventArgs e)
         {
-            dgRoster.Visibility=Visibility.Visible;
-            using (var db = new GuildDatabase(_optionsBuilder.Options))
-            {
-                var dataView = from c in db.Classes
-                               from s in db.Specs
-                               from r in db.Roles
-                               from p in db.Players
-                               from g in db.GuildRanks
-                               from t in db.Teams
-                               where p.WowClassID == c.Id &&
-                                     s.WowClassId == c.Id &&
-                                     r.Id == s.RoleId &&
-                                     p.GuildRankID == g.Id &&
-                                     s.SpecName == p.Specialization
-                               && t.Id == p.TeamID || p.TeamID == 0
-                               orderby p.GuildRankID
-                               select new
-                               {
-                                   p.PlayerName,
-                                   c.ClassName,
-                                   s.SpecName,
-                                   r.RoleName,
-                                   t.TeamName,
-                                   g.GuildRankName
-
-                               }
-                               into selection
-                               orderby selection.PlayerName descending, selection.RoleName descending
-                               select selection;
-                
-                dgRoster.ItemsSource = dataView.ToList();
-            }
+            Refresh();
+            dgRoster.Visibility=Visibility.Visible;           
+            var dataView = Players.Where(x => x != null).ToList();
+            dgRoster.ItemsSource = dataView;
+            
             
         }
         private void AddPlayer_Click(object sender, RoutedEventArgs e)
         {
-
+            var newPlayerAdd = new AddPlayer();
+            newPlayerAdd.Show();
         }
     }
 
