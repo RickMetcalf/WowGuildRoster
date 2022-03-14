@@ -48,6 +48,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DataClasses\DataLibrary.csproj" />
     <ProjectReference Include="..\DataLink\DataModels.csproj" />
+    <ProjectReference Include="..\DataOps\DataOps.csproj" />
   </ItemGroup>
 
   <ItemGroup>

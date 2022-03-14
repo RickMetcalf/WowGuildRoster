@@ -24,7 +24,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content="Add Player" HorizontalAlignment="Left" Height="46" Margin="31,159,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewRoster_Click">
+        <Button Content="Add Player" HorizontalAlignment="Left" Height="46" Margin="31,159,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="AddPlayer_Click">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
