@@ -76,7 +76,18 @@ namespace DataOps
                 db.SaveChanges();
             }
         }
-
+        public async Task DeletePlayer(int deleteID)
+        {
+            await using (var db = new GuildDatabase(_optionsBuilder.Options))
+            {
+                var player = db.Players.SingleOrDefault(x => x.Id == deleteID);
+                if (player != null)
+                {
+                    db.Players.Remove(player);
+                    db.SaveChanges();
+                }
+            }
+        }
 
 
     }

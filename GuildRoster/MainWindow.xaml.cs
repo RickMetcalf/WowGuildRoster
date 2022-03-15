@@ -18,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Extensions.Configuration.Json;
+using System.Diagnostics;
 
 namespace GuildRoster
 {
@@ -83,6 +84,31 @@ namespace GuildRoster
         {
             var newPlayerAdd = new AddPlayer();
             newPlayerAdd.Show();
+        }
+
+        private void RemovePlayer_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgRoster.SelectedItem != null)
+            {
+                Player selectedPlayer = dgRoster.SelectedItem as Player;
+                int playerInfo = selectedPlayer.Id;
+                string playerName = selectedPlayer.PlayerName;                              
+                var userChoice = MessageBox.Show($"Do you want to delete {playerName}?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (userChoice == MessageBoxResult.Yes)
+                {
+                    var deleteOp = new DataOp();
+                    Task.Run(() => deleteOp.DeletePlayer(playerInfo));
+                    MessageBox.Show($"{playerName} deleted", "Player Deleted", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    Refresh();
+                }
+            }
+            
+
+        }
+
+        private void dgRoster_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 

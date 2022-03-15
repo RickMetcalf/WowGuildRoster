@@ -17,7 +17,7 @@
             <ColumnDefinition Width="608*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="dgRoster" Grid.Column="2" Grid.ColumnSpan="2" Opacity="0.695"/>
+        <DataGrid x:Name="dgRoster" Grid.Column="2" Grid.ColumnSpan="2" Opacity="0.695" SelectionChanged="dgRoster_SelectionChanged"/>
         <Image HorizontalAlignment="Center" Height="81" VerticalAlignment="Top" Width="174" Source="/World-of-Warcraft-Logo-2004-present.png" Stretch="UniformToFill"/>
         <Button Content="View Roster" HorizontalAlignment="Left" Height="46" Margin="31,109,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewRoster_Click">
             <Button.Effect>
@@ -35,7 +35,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content="Remove Player" HorizontalAlignment="Left" Height="46" Margin="31,260,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewRoster_Click">
+        <Button Content="Remove Player" HorizontalAlignment="Left" Height="46" Margin="31,260,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="RemovePlayer_Click">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
