@@ -18,6 +18,7 @@
         </Grid.ColumnDefinitions>
 
         <DataGrid x:Name="dgRoster" Grid.Column="2" Grid.ColumnSpan="2" Opacity="0.695" SelectionChanged="dgRoster_SelectionChanged"/>
+        <DataGrid x:Name="dgTeams" Grid.Column="3" Opacity="0.695" SelectionChanged="dgTeams_SelectionChanged" Margin="0,0,-1,80"/>
         <Image HorizontalAlignment="Center" Height="81" VerticalAlignment="Top" Width="174" Source="/World-of-Warcraft-Logo-2004-present.png" Stretch="UniformToFill"/>
         <Button Content="View Roster" HorizontalAlignment="Left" Height="46" Margin="31,109,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewRoster_Click">
             <Button.Effect>
@@ -36,6 +37,26 @@
             </Button.Effect>
         </Button>
         <Button Content="Remove Player" HorizontalAlignment="Left" Height="46" Margin="31,260,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="RemovePlayer_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="viewTeam" Content="View Teams" HorizontalAlignment="Left" Height="46" Margin="31,311,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="ViewTeams_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="addTeam" Content="Add Team" HorizontalAlignment="Left" Height="46" Margin="10,378,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="AddTeam_Click" Grid.Column="3">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="updateTeam" Content="Update Team" HorizontalAlignment="Left" Height="46" Margin="224,378,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="UpdateTeam_Click" Grid.Column="3">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="removeTeam" Content="Remove Team" HorizontalAlignment="Left" Height="46" Margin="442,378,0,0" VerticalAlignment="Top" Width="134" FontFamily="Arial Black" FontSize="16" Background="White" BorderBrush="#FF014F85" Foreground="#FF014F85" Opacity="0.9" Click="RemoveTeam_Click" Grid.Column="3">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>

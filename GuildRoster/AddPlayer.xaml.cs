@@ -101,7 +101,15 @@ namespace GuildRoster
             _player.Specialization = specSelection;
             _player.PlayerRole = roleSelection;
             _player.GuildRankID = rankSelection + 1;
-            _player.TeamID = teamSelection + 1;
+            if (teamSelection != -1)
+            {
+                _player.TeamID = teamSelection + 1;
+            }
+            if (teamSelection == -1)
+            {
+                _player.TeamID = null;
+            }
+            
 
 
             if(string.IsNullOrEmpty(this.playerName.Text))
@@ -114,7 +122,7 @@ namespace GuildRoster
                 MessageBox.Show("Character names can only be 12 characters long","Error" ,MessageBoxButton.OK, MessageBoxImage.Error);
                 return ;
             }
-            if (classSelection == 0 || specSelection == null || roleSelection == null || rankSelection == -1 || teamSelection == -1)
+            if (classSelection == 0 || specSelection == null || roleSelection == null || rankSelection == -1)
             {
                 MessageBox.Show("One or more fields are not fully filled out", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

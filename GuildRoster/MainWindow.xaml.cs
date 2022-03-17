@@ -43,6 +43,10 @@ namespace GuildRoster
             
             InitializeComponent();
             dgRoster.Visibility = Visibility.Collapsed;
+            dgTeams.Visibility = Visibility.Collapsed;
+            addTeam.Visibility = Visibility.Collapsed;
+            removeTeam.Visibility = Visibility.Collapsed;
+            updateTeam.Visibility = Visibility.Collapsed;
             Refresh();
         }
         public void Refresh()
@@ -74,6 +78,10 @@ namespace GuildRoster
         private void ViewRoster_Click(object sender, RoutedEventArgs e)
         {
             Refresh();
+            dgTeams.Visibility = Visibility.Collapsed;
+            addTeam.Visibility = Visibility.Collapsed;
+            removeTeam.Visibility = Visibility.Collapsed;
+            updateTeam.Visibility = Visibility.Collapsed;
             dgRoster.Visibility=Visibility.Visible;           
             var dataView = Players.Where(x => x != null).ToList();
             dgRoster.ItemsSource = dataView;
@@ -106,10 +114,46 @@ namespace GuildRoster
 
         }
 
-        private void dgRoster_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ViewTeams_Click(object sender, RoutedEventArgs e)
         {
+            Refresh();
             
+            dgRoster.Visibility = Visibility.Collapsed;
+            addTeam.Visibility = Visibility.Visible;
+            removeTeam.Visibility = Visibility.Visible;
+            updateTeam.Visibility = Visibility.Visible;
+            dgTeams.Visibility = Visibility.Visible;
+            var dataview = Teams.Where(x => x != null).ToList();
+            dgTeams.ItemsSource = dataview;
+
         }
+
+        private void AddTeam_Click(object sender, RoutedEventArgs e)
+        {
+            var newTeamAdd = new AddTeam();
+            newTeamAdd.Show();
+
+        }
+
+        private void UpdateTeam_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveTeam_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dgRoster_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void dgTeams_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 
 }

@@ -58,7 +58,7 @@ namespace DataOps
         {
             await using (var db = new GuildDatabase(_optionsBuilder.Options))
             {
-                return db.Teams.OrderBy(x => x.TeamName).ToList();
+                return db.Teams.OrderBy(x => x.Id).ToList();
             }
         }
         public async Task<List<Player>> GetPlayers()
@@ -76,6 +76,7 @@ namespace DataOps
                 db.SaveChanges();
             }
         }
+
         public async Task DeletePlayer(int deleteID)
         {
             await using (var db = new GuildDatabase(_optionsBuilder.Options))
@@ -86,6 +87,14 @@ namespace DataOps
                     db.Players.Remove(player);
                     db.SaveChanges();
                 }
+            }
+        }
+        public async Task AddTeam(Team team)
+        {
+            await using (var db = new GuildDatabase(_optionsBuilder.Options))
+            {
+                db.Teams.Add(team);
+                db.SaveChanges();
             }
         }
 

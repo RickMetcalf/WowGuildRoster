@@ -30,7 +30,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <TextBox x:Name="playerName" Grid.Row="0" Grid.Column="1" Background="White" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontFamily="Arial" Margin="0,22,0,0"/>
+        <TextBox x:Name="playerName" Grid.Row="0" Grid.Column="1" Background="White" HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" FontFamily="Arial"/>
         <ComboBox x:Name="playerClass" Grid.Row="1" Grid.Column="1" Background="White" HorizontalAlignment="Center" Width="150" FontFamily="Arial" Height="30" VerticalAlignment="Center" SelectionChanged="playerClass_SelectionChanged"/>
         <ComboBox x:Name="playerSpec" Grid.Row="2" Grid.Column="1" Background="White" HorizontalAlignment="Center" Width="150" FontFamily="Arial" Height="30" VerticalAlignment="Center" SelectionChanged="playerSpec_SelectionChanged"/>
         <ComboBox x:Name="playerRole" Grid.Row="3" Grid.Column="1" Background="White" HorizontalAlignment="Center" Width="150" FontFamily="Arial" Height="30" VerticalAlignment="Center"/>

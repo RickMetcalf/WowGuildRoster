@@ -20,7 +20,7 @@ namespace DataModels
         public string Specialization { get; set; }
         [Required, StringLength(20)]
         public string PlayerRole { get; set; }  
-        public int TeamID { get; set; }
+        public int? TeamID { get; set; }
 
         
 
