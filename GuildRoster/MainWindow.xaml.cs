@@ -29,7 +29,6 @@ namespace GuildRoster
     public partial class MainWindow : Window
     {
         private static IConfigurationRoot _configuration;
-        public static DbContextOptionsBuilder<GuildDatabase> _optionsBuilder;
         private IList<Player> Players = new List<Player>();
         private IList<WowClass> Classes = new List<WowClass>();
         private IList<Spec> Specs = new List<Spec>();
@@ -64,16 +63,11 @@ namespace GuildRoster
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            BuildOptions();
+            Refresh();
 
             
         }
-        static void BuildOptions()
-        {
-            _configuration = ConfigurationBuilderSingleton.ConfigurationRoot;
-            _optionsBuilder = new DbContextOptionsBuilder<GuildDatabase>();
-            _optionsBuilder.UseSqlServer(_configuration.GetConnectionString("GuildRosterData"));
-        }
+        
 
         private void ViewRoster_Click(object sender, RoutedEventArgs e)
         {
